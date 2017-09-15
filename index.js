@@ -1,6 +1,6 @@
 var TIMEOUT_IN_SECS = 3 * 60
 var ALERT_MESSAGES_SECS_TIMEOUT = 30
-var TEMPLATE = '<h1><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>'
+var TEMPLATE = '<h1 style = "border: 6px solid rgba(0,0,0,0.3);"><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>'
 var MESSAGES = ['«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
   '«Жить — значит работать. Труд есть жизнь человека» \n Вольтер',
   '«Любовь и работа - единственные стоящие вещи в жизни. Работа - это своеобразная форма любви» \n Мэрилин Монро',
@@ -71,8 +71,8 @@ class TimerWidget{
 
     // adds HTML tag to current page
     this.timerContainer = document.createElement('div')
-
-    this.timerContainer.setAttribute("style", "height: 100px;")
+    var style = "margin-top: 25px; margin-left: 5px;position: fixed; height: 15px; z-index: 21; font-size: smaller;"
+    this.timerContainer.setAttribute("style", style)
     this.timerContainer.innerHTML = TEMPLATE
 
     rootTag.insertBefore(this.timerContainer, rootTag.firstChild)
