@@ -1,7 +1,6 @@
 # Timer for Websites That Steal Your Time
 
-This project helps to control time was spent on sites. It requires special extension for Chrome browser.
-After installing you can see 3min timer in right top. 
+This project helps to control time was spent on sites. It requires special extension for Chrome browser. 
 # Installing
 
 Install extension for Chrome browser [Custom JavaScript for websites](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija).
