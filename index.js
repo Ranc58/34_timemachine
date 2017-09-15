@@ -1,5 +1,19 @@
 var TIMEOUT_IN_SECS = 3 * 60
+var ALERT_MESSAGES_SECS_TIMEOUT = 30
 var TEMPLATE = '<h1><span class="js-timer-minutes">00</span>:<span class="js-timer-seconds">00</span></h1>'
+var MESSAGES = ['«Всякий неработающий человек — негодяй» \n Жан-Жак Руссо',
+  '«Жить — значит работать. Труд есть жизнь человека» \n Вольтер',
+  '«Любовь и работа - единственные стоящие вещи в жизни. Работа - это своеобразная форма любви» \n Мэрилин Монро',
+  '«Отдых сердца лучше всего обеспечивает работа ума» \n Гастон Левис',
+  '«Работа избавляет нас от трех великих зол: скуки, порока, нужды» \n Вольтер',
+  '«Работа — мое первое наслаждение» \n Вольфганг Моцарт',
+  '«Я твердо верю в удачу, и я заметил: чем больше я работаю, тем я удачливее» \n Томас Джефферсон',
+  '«Вдохновение приходит только во время работы» \n Габриэль Маркес',
+  '«Понуждай сам свою работу; не жди, чтобы она тебя понуждала» \n Бенджамин Франклин',
+  '«Единственное спасение в душевном горе — это работа» \n Петр Чайковский',
+  '«Чтобы победить самые тяжелые страдания, есть два средства: это опиум и работа» \n Генрих Гейне',
+  '«Унция репутации стоит фунта работы» \n Лоренс Питер',
+  '«Обычно те, кто лучше других умеет работать, лучше других умеют не работать» \n Жорж Элгози'];
 
 function padZero(number){
   return ("00" + String(number)).slice(-2);
@@ -37,6 +51,11 @@ class Timer{
     var currentTimestamp = this.getTimestampInSecs()
     var secsGone = currentTimestamp - this.timestampOnStart
     return Math.max(this.timeout_in_secs - secsGone, 0)
+  }
+  updateTimer(timeout_in_secs){
+    this.initial_timeout_in_secs = timeout_in_secs
+    this.timestampOnStart = this.getTimestampInSecs()
+    this.timeout_in_secs = this.initial_timeout_in_secs
   }
 }
 
@@ -85,9 +104,18 @@ function main(){
 
   timerWiget.mount(document.body)
 
+
+  function getMessage(){
+     return MESSAGES[Math.floor(Math.random() * MESSAGES.length)];
+  }
+
   function handleIntervalTick(){
     var secsLeft = timer.calculateSecsLeft()
     timerWiget.update(secsLeft)
+    if (secsLeft <= 0){
+        alert(getMessage());
+        timer.updateTimer(ALERT_MESSAGES_SECS_TIMEOUT)
+    }
   }
 
   function handleVisibilityChange(){
