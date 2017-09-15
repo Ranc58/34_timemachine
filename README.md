@@ -1,14 +1,14 @@
 # Timer for Websites That Steal Your Time
 
 This project helps to control time was spent on sites. It requires special extension for Chrome browser.
-
+After installing you can see 3min timer in right top. 
 # Installing
 
 Install extension for Chrome browser [Custom JavaScript for websites](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija).
 
-Open configuration of [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija) browser extension on the site you want to controll. Click on the link "your own external scripts", add path [TODO в качестве production хостинга файла с JavaScript подойдет GitHub - у каждого файла в репозитории есть свой URL, и этим можно воспользоваться]. Don`t forget to press "enable cjs for this host" to enable custom JS.
+Open configuration of [cjs](https://chrome.google.com/webstore/detail/custom-javascript-for-web/poakhlngfciodnhlhhgnaaelnpjljija) browser extension on the site you want to controll. Click on the link "your own external scripts", add path `https://cdn.rawgit.com/Ranc58/34_timemachine/90454bda/index.js`. Don`t forget to press "enable cjs for this host" to enable custom JS.
 
-[TODO describe what will happen after that]
+After installing you can see 3min timer in right top. At the expiration 3min, timer displayed message and resets to 30 seconds. and will display the message every 30 seconds. It will be repeated endlessly.
 
 For faster development you can use JS code hosted on localhost. Simple web server can be used for that, run:
 
