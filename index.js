@@ -71,7 +71,7 @@ class TimerWidget{
 
     // adds HTML tag to current page
     this.timerContainer = document.createElement('div')
-    var style = "margin-top: 25px; margin-left: 5px;position: fixed; height: 15px; z-index: 21; font-size: smaller;"
+    var style = "margin-top: 25px; margin-left: 5px; position: fixed; height: 15px; z-index: 21; font-size: smaller;"
     this.timerContainer.setAttribute("style", style)
     this.timerContainer.innerHTML = TEMPLATE
 
